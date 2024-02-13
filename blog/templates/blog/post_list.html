@@ -6,7 +6,9 @@
     <time class="date">
         {{ post.published_date }}
     </time>
-    <h2><a href="">{{ post.title }}</a></h2>
+    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+    <!-- The post-detail part means that Django will expect a URL in blog/urls.py with name post_detail -->
+    <!--  pk=post.pk means that we will use the primary key of the post as the parameter for the URL. -->
     <p>{{ post.text|linebreaksbr }}</p>
 </article>
 {% endfor %}
